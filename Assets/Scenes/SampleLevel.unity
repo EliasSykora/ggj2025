@@ -201,7 +201,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.011904776, y: 0.011904776, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -1323,41 +1323,6 @@ Transform:
   - {fileID: 149887966}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &722397985 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7119504813378483455, guid: a98ac8b191c93344a8402fce611326a1, type: 3}
-  m_PrefabInstance: {fileID: 4398246650049260438}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &722397989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722397985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 190e9ad82daa4c347ac640e58cf5d980, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!4 &722397992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4815066244202839723, guid: a98ac8b191c93344a8402fce611326a1, type: 3}
@@ -1438,7 +1403,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.011904776, y: 0.011904776, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -3837,6 +3802,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 651097927
       objectReference: {fileID: 0}
+    - target: {fileID: 134940530645224975, guid: a98ac8b191c93344a8402fce611326a1, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 417299343505505961, guid: a98ac8b191c93344a8402fce611326a1, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -3896,10 +3865,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7119504813378483455, guid: a98ac8b191c93344a8402fce611326a1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 722397989}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a98ac8b191c93344a8402fce611326a1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
