@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Collectable
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -11,7 +13,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Interactions
   - 
   - 
   - 
@@ -41,6 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Interactions
+    uniqueID: 2952925259
+    locked: 0
   - name: Player
     uniqueID: 651097927
+    locked: 0
+  - name: Water
+    uniqueID: 3593347135
     locked: 0

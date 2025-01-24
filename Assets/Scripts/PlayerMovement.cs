@@ -13,9 +13,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float airAmount = 1f;
     [SerializeField] float airMinimalAmount = 0.0001f;
     [SerializeField] GameObject bubbleSprite;
+    [SerializeField] float shellsToCollect = 1;
+    private float shellsCollected = 0;
     private Vector3 scaleChange;
     private Vector3 pushedAir;
     private Vector3 minSize;
+    private float currentGravitation = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,18 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         UpdateAir();
+        UpdateGravity();
+    }
+
+    void LateUpdate()
+    {
+       // UpdateGravity();
+    }
+
+    void UpdateGravity()
+    {
+
+        currentGravitation = 1f - airAmount;
     }
 
     void UpdateAir()
@@ -64,9 +79,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (value.isPressed)
         {
-            airAmount += 0.1f;
+            airAmount += 0.2f;
             bubbleSprite.transform.localScale += pushedAir;
             myRigidbody.velocity += new Vector2(0f, floatSpeed);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Collectable")
+        {
+            collision.gameObject.SetActive(false);
+            shellsCollected++;
         }
     }
 }
