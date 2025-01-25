@@ -7,12 +7,16 @@ public class PlayerMovement : MonoBehaviour
 {
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
+    [Header("Objects")]
+    [SerializeField] GameObject bubbleSprite;
+    [SerializeField] GameObject insideBubble;
     [SerializeField] CircleCollider2D bubbleCollider;
+    [Header("Speed")]
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float floatSpeed = 5f;
     [SerializeField] float airAmount = 1f;
     [SerializeField] float airMinimalAmount = 0.0001f;
-    [SerializeField] GameObject bubbleSprite;
+    [Header("Collectables")]
     [SerializeField] float shellsToCollect = 1;
     private float shellsCollected = 0;
     private Vector3 scaleChange;
@@ -24,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-        bubbleCollider = GetComponent<CircleCollider2D>();
         scaleChange = new Vector3(-0.0005f, -0.0005f, -0.0005f);
         minSize = new Vector3(0.5f, 0.5f, 0.5f);
         pushedAir = new Vector3(0.2f, 0.2f, 0.2f);
@@ -34,19 +37,28 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
-        UpdateAir();
         UpdateGravity();
-    }
-
-    void LateUpdate()
-    {
-       // UpdateGravity();
+        UpdateAir();
     }
 
     void UpdateGravity()
     {
+        // Not touching water
+        if (!bubbleCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+        {
+            Debug.Log("Not touching water");
+            myRigidbody.gravityScale = 1f;
+            airAmount = 1f;
+            bubbleSprite.transform.localScale = new Vector3(1f, 1f, 1f);
+            return;
+        }
 
+        // Touching water
+        //Debug.Log(airAmount);
         currentGravitation = 1f - airAmount;
+        myRigidbody.gravityScale = currentGravitation;
+
+        
     }
 
     void UpdateAir()
@@ -56,8 +68,10 @@ public class PlayerMovement : MonoBehaviour
         {
             bubbleSprite.transform.localScale += scaleChange;
         } else { return; }
-        airAmount-= 0.0005f;
 
+        if (airAmount > 0f) {
+        airAmount -= 0.0005f;
+        }
     }
 
     void Move()
@@ -81,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         {
             airAmount += 0.2f;
             bubbleSprite.transform.localScale += pushedAir;
-            myRigidbody.velocity += new Vector2(0f, floatSpeed);
+            //myRigidbody.velocity += new Vector2(0f, floatSpeed);
         }
     }
 
