@@ -96,6 +96,13 @@ public class PlayerMovement : MonoBehaviour
         bubbleSprite.transform.localScale += scaleChange;
         AirBarMask.anchoredPosition = new Vector2(AirBarMask.anchoredPosition.x - 1f, AirBarMask.anchoredPosition.y);
 
+        if(AirBarMask.anchoredPosition.x > -5f)
+        {
+            AirBarMask.anchoredPosition = new Vector2(-5f, AirBarMask.anchoredPosition.y);
+
+        }
+
+
         if (bubbleSprite.transform.localScale.x < minSize.x) 
         {
             Debug.Log("Chcíp!");
@@ -156,6 +163,13 @@ public class PlayerMovement : MonoBehaviour
         if (collision.tag == "Danger")
         {
             Death();
+        }
+
+        if (collision.tag == "AirTank")
+        {
+            collision.gameObject.SetActive(false);
+
+            AirBarMask.anchoredPosition = new Vector2(AirBarMask.anchoredPosition.x + 600f, AirBarMask.anchoredPosition.y);
         }
     }
 

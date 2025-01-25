@@ -7,6 +7,8 @@ TagManager:
   - Collectable
   - Water
   - Danger
+  - AirBomb
+  - AirTank
   layers:
   - Default
   - TransparentFX
