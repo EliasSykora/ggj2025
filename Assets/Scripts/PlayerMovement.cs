@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 pushedAir;
     private Vector3 minSize;
     private float currentGravitation = 1;
+    private bool isAlive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +40,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Move();
+        if (!isAlive) return;
+            
+            Move();
     }
 
     void RepeatedTests()
     {
+        if (!isAlive) return;
+
         UpdateGravity();
 
         if (bubbleCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
@@ -101,6 +106,8 @@ public class PlayerMovement : MonoBehaviour
 
     void OnFloat(InputValue value)
     {
+        if (!isAlive) return;
+
         if (!bubbleCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
             return;
@@ -126,10 +133,18 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Water");
             myRigidbody.velocity = new Vector2(0.0f, 0.0f);
         }
+
+        if (collision.tag == "Danger")
+        {
+            Death();
+        }
     }
 
     private void Death()
     {
+        isAlive = false;
+        bubbleSprite.transform.localScale = minSize;
+        myRigidbody.gravityScale = 2;
         Invoke("ReloadLevel", 2f);
     }
 }
