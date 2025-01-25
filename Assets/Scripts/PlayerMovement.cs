@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float floatSpeed = 5f;
     [SerializeField] float airAmount = 1f;
     [SerializeField] float airMinimalAmount = 0.0001f;
+    [SerializeField] float pumpAirAmount = 0.2f;
     [Header("Collectables")]
     [SerializeField] float shellsToCollect = 1;
     private float shellsCollected = 0;
@@ -30,15 +32,17 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         scaleChange = new Vector3(-0.0005f, -0.0005f, -0.0005f);
         minSize = new Vector3(0.5f, 0.5f, 0.5f);
-        pushedAir = new Vector3(0.2f, 0.2f, 0.2f);
+        pushedAir = new Vector3(pumpAirAmount, pumpAirAmount, pumpAirAmount);
+        InvokeRepeating("UpdateGravity", 0.05f, 0.05f);
+        InvokeRepeating("UpdateAir", 0.05f, 0.05f);
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
-        UpdateGravity();
-        UpdateAir();
+       // UpdateGravity();
+       // UpdateAir();
     }
 
     void UpdateGravity()
@@ -57,21 +61,29 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(airAmount);
         currentGravitation = 1f - airAmount;
         myRigidbody.gravityScale = currentGravitation;
+        Debug.Log(currentGravitation);
 
-        
+
     }
 
     void UpdateAir()
     {
-        
         if (bubbleSprite.transform.localScale.x > minSize.x)
         {
             bubbleSprite.transform.localScale += scaleChange;
-        } else { return; }
+        } else { 
+            Invoke("ReloadLevel", 2f);
+            return;
+        }
 
         if (airAmount > 0f) {
         airAmount -= 0.0005f;
         }
+    }
+
+    void ReloadLevel()
+    {
+        SceneManager.LoadScene(0);
     }
 
     void Move()
@@ -93,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (value.isPressed)
         {
-            airAmount += 0.2f;
+            airAmount += pumpAirAmount;
             bubbleSprite.transform.localScale += pushedAir;
             //myRigidbody.velocity += new Vector2(0f, floatSpeed);
         }
