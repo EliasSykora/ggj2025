@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float floatSpeed = 5f;
     [SerializeField] float airAmount = 1f;
     [SerializeField] float airMinimalAmount = 0.0001f;
+    [SerializeField] float pumpAirAmount = 0.2f;
     [Header("Collectables")]
     [SerializeField] float shellsToCollect = 1;
     private float shellsCollected = 0;
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         scaleChange = new Vector3(-0.0005f, -0.0005f, -0.0005f);
         minSize = new Vector3(0.5f, 0.5f, 0.5f);
-        pushedAir = new Vector3(0.2f, 0.2f, 0.2f);
+        pushedAir = new Vector3(pumpAirAmount, pumpAirAmount, pumpAirAmount);
     }
 
     // Update is called once per frame
@@ -57,8 +58,9 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(airAmount);
         currentGravitation = 1f - airAmount;
         myRigidbody.gravityScale = currentGravitation;
+        Debug.Log(currentGravitation);
 
-        
+
     }
 
     void UpdateAir()
@@ -93,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (value.isPressed)
         {
-            airAmount += 0.2f;
+            airAmount += pumpAirAmount;
             bubbleSprite.transform.localScale += pushedAir;
             //myRigidbody.velocity += new Vector2(0f, floatSpeed);
         }
