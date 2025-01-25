@@ -7,6 +7,8 @@ public class NextLevel : MonoBehaviour
 {
 
     [SerializeField] float levelLoadDelay = 1f;
+    GameObject[] Pearls;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         StartCoroutine(LoadNextLevel());

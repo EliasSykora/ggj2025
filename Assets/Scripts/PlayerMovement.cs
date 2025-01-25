@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject bubbleSprite;
     //[SerializeField] GameObject insideBubble;
     [SerializeField] CircleCollider2D bubbleCollider;
+    GameObject[] Pearls;
 
     [Header("Speed")]
     [SerializeField] float moveSpeed = 10f;
@@ -45,6 +46,10 @@ public class PlayerMovement : MonoBehaviour
         pushedAir = new Vector3(pumpAirAmount, pumpAirAmount, pumpAirAmount);
         InvokeRepeating("RepeatedTests", 0.05f, 0.05f);
         AirBarMask = AirBar.GetComponent<RectTransform>();
+        Pearls = GameObject.FindGameObjectsWithTag("Collectable");
+
+       // Debug.Log(Pearls.Length);
+       
     }
 
     void Update()
