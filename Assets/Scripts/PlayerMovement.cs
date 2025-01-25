@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,11 +23,18 @@ public class PlayerMovement : MonoBehaviour
     [Header("Collectables")]
     [SerializeField] float shellsToCollect = 1;
     private float shellsCollected = 0;
+
+    [Header("Air")]
+    [SerializeField] float breathableAir = 1f;
+    [SerializeField] Image AirBar;
+    private RectTransform AirBarMask;
     private Vector3 scaleChange;
     private Vector3 pushedAir;
     private Vector3 minSize;
     private float currentGravitation = 1;
     private bool isAlive = true;
+    private float airBarCapacity = 1310f;
+    private float airBarDeficit = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         minSize = new Vector3(0.5f, 0.5f, 0.5f);
         pushedAir = new Vector3(pumpAirAmount, pumpAirAmount, pumpAirAmount);
         InvokeRepeating("RepeatedTests", 0.05f, 0.05f);
+        AirBarMask = AirBar.GetComponent<RectTransform>();
     }
 
     void Update()
@@ -65,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody.gravityScale = 1f;
             airAmount = 1f;
             bubbleSprite.transform.localScale = new Vector3(1f, 1f, 1f);
+            AirBarMask.anchoredPosition = new Vector2(-5f, AirBarMask.anchoredPosition.y);
+
             return;
         }
         // Touching water
@@ -75,11 +86,17 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateAir()
     {
-        if (airAmount > 0f)  airAmount -= 0.001f;
+       if(AirBarMask.anchoredPosition.x < -1310) Death();
+
+        if (airAmount > 0f)  airAmount -= 0.001f; 
+
+        airBarDeficit -= 0.005f;
+      
 
         bubbleSprite.transform.localScale += scaleChange;
+        AirBarMask.anchoredPosition = new Vector2(AirBarMask.anchoredPosition.x - 1f, AirBarMask.anchoredPosition.y);
 
-        if (bubbleSprite.transform.localScale.x < minSize.x)
+        if (bubbleSprite.transform.localScale.x < minSize.x) 
         {
             Debug.Log("Chcíp!");
             Death();
@@ -117,6 +134,8 @@ public class PlayerMovement : MonoBehaviour
         {
             airAmount += pumpAirAmount;
             bubbleSprite.transform.localScale += pushedAir;
+            AirBarMask.anchoredPosition = new Vector2(AirBarMask.anchoredPosition.x - 10f, AirBarMask.anchoredPosition.y);
+
         }
     }
 
@@ -145,6 +164,7 @@ public class PlayerMovement : MonoBehaviour
         isAlive = false;
         bubbleSprite.transform.localScale = minSize;
         myRigidbody.gravityScale = 2;
+        AirBarMask.anchoredPosition = new Vector2(-airBarCapacity, AirBarMask.anchoredPosition.y);
         Invoke("ReloadLevel", 2f);
     }
 }
