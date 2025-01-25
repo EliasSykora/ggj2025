@@ -8,16 +8,17 @@ public class PlayerMovement : MonoBehaviour
 {
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
+
     [Header("Objects")]
     [SerializeField] GameObject bubbleSprite;
-    [SerializeField] GameObject insideBubble;
+    //[SerializeField] GameObject insideBubble;
     [SerializeField] CircleCollider2D bubbleCollider;
+
     [Header("Speed")]
     [SerializeField] float moveSpeed = 10f;
-    [SerializeField] float floatSpeed = 5f;
     [SerializeField] float airAmount = 1f;
-    [SerializeField] float airMinimalAmount = 0.0001f;
     [SerializeField] float pumpAirAmount = 0.2f;
+
     [Header("Collectables")]
     [SerializeField] float shellsToCollect = 1;
     private float shellsCollected = 0;
@@ -30,19 +31,25 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-        scaleChange = new Vector3(-0.0005f, -0.0005f, -0.0005f);
+        scaleChange = new Vector3(-0.001f, -0.001f, -0.001f);
         minSize = new Vector3(0.5f, 0.5f, 0.5f);
         pushedAir = new Vector3(pumpAirAmount, pumpAirAmount, pumpAirAmount);
-        InvokeRepeating("UpdateGravity", 0.05f, 0.05f);
-        InvokeRepeating("UpdateAir", 0.05f, 0.05f);
+        InvokeRepeating("RepeatedTests", 0.05f, 0.05f);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
-       // UpdateGravity();
-       // UpdateAir();
+    }
+
+    void RepeatedTests()
+    {
+        UpdateGravity();
+
+        if (bubbleCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+        {
+            UpdateAir();
+        } 
     }
 
     void UpdateGravity()
@@ -50,34 +57,27 @@ public class PlayerMovement : MonoBehaviour
         // Not touching water
         if (!bubbleCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
-            Debug.Log("Not touching water");
             myRigidbody.gravityScale = 1f;
             airAmount = 1f;
             bubbleSprite.transform.localScale = new Vector3(1f, 1f, 1f);
             return;
         }
-
         // Touching water
-        //Debug.Log(airAmount);
         currentGravitation = 1f - airAmount;
         myRigidbody.gravityScale = currentGravitation;
-        Debug.Log(currentGravitation);
-
-
+        //Debug.Log(currentGravitation);
     }
 
     void UpdateAir()
     {
-        if (bubbleSprite.transform.localScale.x > minSize.x)
-        {
-            bubbleSprite.transform.localScale += scaleChange;
-        } else { 
-            Invoke("ReloadLevel", 2f);
-            return;
-        }
+        if (airAmount > 0f)  airAmount -= 0.001f;
 
-        if (airAmount > 0f) {
-        airAmount -= 0.0005f;
+        bubbleSprite.transform.localScale += scaleChange;
+
+        if (bubbleSprite.transform.localScale.x < minSize.x)
+        {
+            Debug.Log("Chcíp!");
+            Death();
         }
     }
 
@@ -96,18 +96,20 @@ public class PlayerMovement : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        Debug.Log(moveInput);
-
+       // Debug.Log(moveInput);
     }
 
     void OnFloat(InputValue value)
     {
+        if (!bubbleCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+        {
+            return;
+        }
 
         if (value.isPressed)
         {
             airAmount += pumpAirAmount;
             bubbleSprite.transform.localScale += pushedAir;
-            //myRigidbody.velocity += new Vector2(0f, floatSpeed);
         }
     }
 
@@ -118,5 +120,16 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.SetActive(false);
             shellsCollected++;
         }
+
+        if (collision.tag == "Water")
+        {
+            Debug.Log("Water");
+            myRigidbody.velocity = new Vector2(0.0f, 0.0f);
+        }
+    }
+
+    private void Death()
+    {
+        Invoke("ReloadLevel", 2f);
     }
 }

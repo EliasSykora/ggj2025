@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectable
   - Water
+  - Danger
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - Water
   - UI
   - Interactions
-  - 
+  - Danger
   - 
   - 
   - 
@@ -45,6 +46,9 @@ TagManager:
     locked: 0
   - name: Water
     uniqueID: 3593347135
+    locked: 0
+  - name: Danger
+    uniqueID: 4270686747
     locked: 0
   - name: Platforms
     uniqueID: 4171522587
