@@ -22,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float airReduction = 0.001f;
 
     [Header("Collectables")]
-    [SerializeField] float shellsToCollect = 1;
-    private float shellsCollected = 0;
+    [SerializeField] float shellsToCollect = 1f;
+    private float shellsCollected = 0f;
 
     [Header("Air")]
     [SerializeField] float breathableAir = 1f;
@@ -36,6 +36,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isAlive = true;
     private float airBarCapacity = 1310f;
     private float airBarDeficit = 1f;
+    [SerializeField] private float startFloat = 1f;
+    [SerializeField] private float startDrown = 0.3f;
+    [SerializeField] private float floatDrownSpeed = 0.01f;
+    [SerializeField] private float pumpSpeedUp = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -82,11 +86,23 @@ public class PlayerMovement : MonoBehaviour
             AirBarMask.anchoredPosition = new Vector2(-5f, AirBarMask.anchoredPosition.y);
 
             return;
+        } else
+        {
+            myRigidbody.gravityScale = 0;
+        }
+
+        if(airAmount > startFloat)
+        {
+            myRigidbody.velocity  = new Vector2(myRigidbody.velocity.x, myRigidbody.velocity.y-floatDrownSpeed);
+        } else if (airAmount > startDrown) {
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, 0f);
+        }  else if (airAmount < startDrown) {
+           myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, myRigidbody.velocity.y - floatDrownSpeed);
         }
         // Touching water
-        currentGravitation = 1f - airAmount;
-        myRigidbody.gravityScale = currentGravitation;
-        //Debug.Log(currentGravitation);
+        // currentGravitation = 1f - (0.5+airAmount);s
+        // myRigidbody.gravityScale = currentGravitation;
+        // Debug.Log(currentGravitation);
     }
 
     void UpdateAir()
@@ -146,8 +162,9 @@ public class PlayerMovement : MonoBehaviour
         {
             airAmount += pumpAirAmount;
             bubbleSprite.transform.localScale += pushedAir;
-            AirBarMask.anchoredPosition = new Vector2(AirBarMask.anchoredPosition.x - (pumpAirAmount*100), AirBarMask.anchoredPosition.y);
-
+            AirBarMask.anchoredPosition = new Vector2(AirBarMask.anchoredPosition.x - (pumpAirAmount*200), AirBarMask.anchoredPosition.y);
+            // myRigidbody.velocity = new Vector2(0f, 0f);
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, myRigidbody.velocity.y + pumpSpeedUp);
         }
     }
 
@@ -175,6 +192,10 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.SetActive(false);
 
             AirBarMask.anchoredPosition = new Vector2(AirBarMask.anchoredPosition.x + 600f, AirBarMask.anchoredPosition.y);
+            if (AirBarMask.anchoredPosition.x > -5f)
+            {
+                AirBarMask.anchoredPosition = new Vector2(-5f, AirBarMask.anchoredPosition.y);
+            }
         }
     }
 
