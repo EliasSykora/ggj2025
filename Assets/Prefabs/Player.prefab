@@ -143,7 +143,7 @@ Transform:
   m_GameObject: {fileID: 4054441746029322868}
   serializedVersion: 2
   m_LocalRotation: {x: -6.3108872e-30, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -11.904762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -648,7 +648,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.59, y: 0.09036857, z: 0.02614556}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.84, y: 0.84, z: 0.84}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1778053711317349725}
@@ -673,7 +673,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -739,6 +739,10 @@ MonoBehaviour:
   shellsToCollect: 1
   breathableAir: 1
   AirBar: {fileID: 5918489835263923412}
+  startFloat: 0.85
+  startDrown: 0.82
+  floatDrownSpeed: 0.05
+  pumpSpeedUp: 3
 --- !u!1 &8200081111392435979
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +769,7 @@ Transform:
   m_GameObject: {fileID: 8200081111392435979}
   serializedVersion: 2
   m_LocalRotation: {x: -6.3108872e-30, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -11.904762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
