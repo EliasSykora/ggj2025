@@ -17,7 +17,7 @@ public class NextLevel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(LoadNextLevel());
+        if (animator.GetBool("CollectedAll")) StartCoroutine(LoadNextLevel());
        
     }
 

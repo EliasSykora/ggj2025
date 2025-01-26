@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 scaleChange;
     private Vector3 pushedAir;
     private Vector3 minSize;
-    private float currentGravitation = 1;
+    private float currentGravitation = 1f;
     private bool isAlive = true;
     private float airBarCapacity = 1310f;
     private float airBarDeficit = 1f;
@@ -40,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float startDrown = 0.3f;
     [SerializeField] private float floatDrownSpeed = 0.01f;
     [SerializeField] private float pumpSpeedUp = 5f;
+
+    public GameObject ExitObject;
+    public Animator ExitAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -51,9 +54,11 @@ public class PlayerMovement : MonoBehaviour
         InvokeRepeating("RepeatedTests", 0.05f, 0.05f);
         AirBarMask = AirBar.GetComponent<RectTransform>();
         Pearls = GameObject.FindGameObjectsWithTag("Collectable");
+        ExitObject = GameObject.Find("Exit");
+        ExitAnimator = ExitObject.GetComponent<Animator>();
 
-       // Debug.Log(Pearls.Length);
-       
+        //Debug.Log("Perel je: " + Pearls.Length);
+
     }
 
     void Update()
@@ -174,13 +179,20 @@ public class PlayerMovement : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             shellsCollected++;
-        }
 
+            if (shellsCollected >= Pearls.Length)
+            {
+                ExitAnimator.SetBool("CollectedAll", true);
+                //gameObject.SetActive(false);
+                myRigidbody.velocity = new Vector2(0.0f, 0.0f);
+            }
+        }
+        /*
         if (collision.tag == "Exit")
         {
-           // collision.gameObject.NextLevel();
+            ExitAnimator.SetBool("CollectedAll", true);
         }
-
+        */
             if (collision.tag == "Water")
         {
             Debug.Log("Water");
