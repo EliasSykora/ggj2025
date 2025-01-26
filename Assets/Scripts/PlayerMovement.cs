@@ -222,6 +222,7 @@ public class PlayerMovement : MonoBehaviour
         bubbleSprite.transform.localScale = minSize;
         myRigidbody.gravityScale = 2;
         AirBarMask.anchoredPosition = new Vector2(-airBarCapacity, AirBarMask.anchoredPosition.y);
-        Invoke("ReloadLevel", 2f);
+        Invoke("ReloadLevel", 1.2f);
+        myRigidbody.velocity = new Vector2(0.0f, 0.0f);
     }
 }
