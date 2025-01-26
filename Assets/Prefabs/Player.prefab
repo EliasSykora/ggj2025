@@ -741,9 +741,11 @@ MonoBehaviour:
   breathableAir: 1
   AirBar: {fileID: 5918489835263923412}
   startFloat: 1.2
-  startDrown: 1.15
+  startDrown: 1.19
   floatDrownSpeed: 0.07
   pumpSpeedUp: 3
+  ExitObject: {fileID: 0}
+  ExitAnimator: {fileID: 0}
 --- !u!114 &1438786685721407756
 MonoBehaviour:
   m_ObjectHideFlags: 0
