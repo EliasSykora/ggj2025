@@ -21,8 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float pumpAirAmount = 0.2f;
     [SerializeField] float airReduction = 0.001f;
 
-    [Header("Collectables")]
-    [SerializeField] float shellsToCollect = 1f;
+   // Collectables
     private float shellsCollected = 0f;
 
     [Header("Air")]
@@ -32,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 scaleChange;
     private Vector3 pushedAir;
     private Vector3 minSize;
-    private float currentGravitation = 1f;
+    //private float currentGravitation = 1f;
     private bool isAlive = true;
     private float airBarCapacity = 1310f;
     private float airBarDeficit = 1f;
@@ -40,9 +39,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float startDrown = 0.3f;
     [SerializeField] private float floatDrownSpeed = 0.01f;
     [SerializeField] private float pumpSpeedUp = 5f;
+    [SerializeField] private GameObject catBody;
 
     public GameObject ExitObject;
     public Animator ExitAnimator;
+    private Animator myAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
         Pearls = GameObject.FindGameObjectsWithTag("Collectable");
         ExitObject = GameObject.Find("Exit");
         ExitAnimator = ExitObject.GetComponent<Animator>();
+        myAnimator = catBody.GetComponent<Animator>();
 
         //Debug.Log("Perel je: " + Pearls.Length);
 
@@ -218,6 +220,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Death()
     {
+
+        Debug.Log("death");
+        myAnimator.SetBool("Dead", true);
+
         isAlive = false;
         bubbleSprite.transform.localScale = minSize;
         myRigidbody.gravityScale = 2;
