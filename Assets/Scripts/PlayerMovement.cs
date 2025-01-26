@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] GameObject bubbleSprite;
-    //[SerializeField] GameObject insideBubble;
     [SerializeField] CircleCollider2D bubbleCollider;
     GameObject[] Pearls;
 
@@ -20,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float airAmount = 1f;
     [SerializeField] float pumpAirAmount = 0.2f;
+    [SerializeField] float airReduction = 0.001f;
 
     [Header("Collectables")]
     [SerializeField] float shellsToCollect = 1;
@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-        scaleChange = new Vector3(-0.001f, -0.001f, -0.001f);
+        scaleChange = new Vector3(-airReduction, -airReduction, -airReduction);
         minSize = new Vector3(0.5f, 0.5f, 0.5f);
         pushedAir = new Vector3(pumpAirAmount, pumpAirAmount, pumpAirAmount);
         InvokeRepeating("RepeatedTests", 0.05f, 0.05f);
@@ -91,26 +91,26 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateAir()
     {
+       // Death by empty airtank
        if(AirBarMask.anchoredPosition.x < -1310) Death();
 
-        if (airAmount > 0f)  airAmount -= 0.001f; 
-
-        airBarDeficit -= 0.005f;
-      
-
+       // Air reduction 
+       if (airAmount > 0f)  airAmount -= airReduction;
         bubbleSprite.transform.localScale += scaleChange;
-        AirBarMask.anchoredPosition = new Vector2(AirBarMask.anchoredPosition.x - 1f, AirBarMask.anchoredPosition.y);
 
-        if(AirBarMask.anchoredPosition.x > -5f)
-        {
-            AirBarMask.anchoredPosition = new Vector2(-5f, AirBarMask.anchoredPosition.y);
+        /* 
+         airBarDeficit -= 0.005f;
+         AirBarMask.anchoredPosition = new Vector2(AirBarMask.anchoredPosition.x - 1f, AirBarMask.anchoredPosition.y);
 
-        }
+         if(AirBarMask.anchoredPosition.x > -5f)
+         {
+             AirBarMask.anchoredPosition = new Vector2(-5f, AirBarMask.anchoredPosition.y);
+         }
+        */
 
-
+        // Death by bubble reduction
         if (bubbleSprite.transform.localScale.x < minSize.x) 
         {
-            Debug.Log("Chcíp!");
             Death();
         }
     }
@@ -146,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
         {
             airAmount += pumpAirAmount;
             bubbleSprite.transform.localScale += pushedAir;
-            AirBarMask.anchoredPosition = new Vector2(AirBarMask.anchoredPosition.x - 10f, AirBarMask.anchoredPosition.y);
+            AirBarMask.anchoredPosition = new Vector2(AirBarMask.anchoredPosition.x - (pumpAirAmount*100), AirBarMask.anchoredPosition.y);
 
         }
     }

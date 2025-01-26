@@ -733,8 +733,9 @@ MonoBehaviour:
   bubbleSprite: {fileID: 5878139218563212024}
   bubbleCollider: {fileID: 1834634230901600350}
   moveSpeed: 5
-  airAmount: 100
-  pumpAirAmount: 0.2
+  airAmount: 1
+  pumpAirAmount: 0.06
+  airReduction: 0.002
   shellsToCollect: 1
   breathableAir: 1
   AirBar: {fileID: 5918489835263923412}
