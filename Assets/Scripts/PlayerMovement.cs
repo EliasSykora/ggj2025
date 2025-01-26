@@ -176,7 +176,12 @@ public class PlayerMovement : MonoBehaviour
             shellsCollected++;
         }
 
-        if (collision.tag == "Water")
+        if (collision.tag == "Exit")
+        {
+           // collision.gameObject.NextLevel();
+        }
+
+            if (collision.tag == "Water")
         {
             Debug.Log("Water");
             myRigidbody.velocity = new Vector2(0.0f, 0.0f);
