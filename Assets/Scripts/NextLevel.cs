@@ -8,10 +8,22 @@ public class NextLevel : MonoBehaviour
 
     [SerializeField] float levelLoadDelay = 1f;
     GameObject[] Pearls;
+    Animator animator;
+    
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         StartCoroutine(LoadNextLevel());
+       
+    }
+
+    public void OpenExit()
+    {
+        animator.SetBool("CollectedAll", true);
     }
 
     IEnumerator LoadNextLevel()
@@ -20,6 +32,7 @@ public class NextLevel : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         int nextSceneIndex = currentSceneIndex + 1;
+       
 
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {

@@ -9,6 +9,7 @@ TagManager:
   - Danger
   - AirBomb
   - AirTank
+  - Exit
   layers:
   - Default
   - TransparentFX
