@@ -659,7 +659,7 @@ Transform:
   - {fileID: 1455928999158388850}
   - {fileID: 2906211083453259584}
   - {fileID: 629758352202011121}
-  - {fileID: 6746974877701900029}
+  - {fileID: 323441811204004539}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &134940530645224975
@@ -738,7 +738,7 @@ MonoBehaviour:
   pumpAirAmount: 0.08
   airReduction: 0.002
   breathableAir: 1
-  AirBar: {fileID: 5918489835263923412}
+  AirBar: {fileID: 864051623495747730}
   startFloat: 1.2
   startDrown: 1.19
   floatDrownSpeed: 0.07
@@ -830,7 +830,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 2276009245751685034}
---- !u!1001 &6586380538480434686
+--- !u!1001 &196064150908486072
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -927,10 +927,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
---- !u!114 &5918489835263923412 stripped
+--- !u!224 &323441811204004539 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 487963068782091011, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
+  m_PrefabInstance: {fileID: 196064150908486072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &864051623495747730 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 667998470388746538, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
-  m_PrefabInstance: {fileID: 6586380538480434686}
+  m_PrefabInstance: {fileID: 196064150908486072}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -938,8 +943,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &6746974877701900029 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 487963068782091011, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
-  m_PrefabInstance: {fileID: 6586380538480434686}
-  m_PrefabAsset: {fileID: 0}
