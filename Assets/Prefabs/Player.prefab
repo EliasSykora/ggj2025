@@ -659,7 +659,7 @@ Transform:
   - {fileID: 1455928999158388850}
   - {fileID: 2906211083453259584}
   - {fileID: 629758352202011121}
-  - {fileID: 323441811204004539}
+  - {fileID: 4810988107931082824}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &134940530645224975
@@ -738,7 +738,7 @@ MonoBehaviour:
   pumpAirAmount: 0.08
   airReduction: 0.002
   breathableAir: 1
-  AirBar: {fileID: 864051623495747730}
+  AirBar: {fileID: 1467537323365323284}
   startFloat: 1.2
   startDrown: 1.19
   floatDrownSpeed: 0.07
@@ -830,7 +830,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 2276009245751685034}
---- !u!1001 &196064150908486072
+--- !u!1001 &4900347277066402635
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -918,6 +918,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1650005539738467435, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
+      propertyPath: m_Name
+      value: Airtank
+      objectReference: {fileID: 0}
     - target: {fileID: 6559250205931378695, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
       propertyPath: m_Name
       value: UI
@@ -927,19 +931,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
---- !u!224 &323441811204004539 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 487963068782091011, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
-  m_PrefabInstance: {fileID: 196064150908486072}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &864051623495747730 stripped
+--- !u!114 &1467537323365323284 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 667998470388746538, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
-  m_PrefabInstance: {fileID: 196064150908486072}
+  m_CorrespondingSourceObject: {fileID: 5790567581786646879, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
+  m_PrefabInstance: {fileID: 4900347277066402635}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &4810988107931082824 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 487963068782091011, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
+  m_PrefabInstance: {fileID: 4900347277066402635}
+  m_PrefabAsset: {fileID: 0}
