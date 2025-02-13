@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Air")]
     [SerializeField] float breathableAir = 1f;
-    [SerializeField] Image AirBar;
+    [SerializeField] RawImage AirBar;
     private RectTransform AirBarMask;
     private Vector3 scaleChange;
     private Vector3 pushedAir;
@@ -40,10 +40,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float floatDrownSpeed = 0.01f;
     [SerializeField] private float pumpSpeedUp = 5f;
     [SerializeField] private GameObject catBody;
-
+ 
     public GameObject ExitObject;
     public Animator ExitAnimator;
     private Animator myAnimator;
+    float airBarStartingPosition = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
         ExitObject = GameObject.Find("Exit");
         ExitAnimator = ExitObject.GetComponent<Animator>();
         myAnimator = catBody.GetComponent<Animator>();
+        airBarStartingPosition = AirBarMask.anchoredPosition.x;
 
         //Debug.Log("Perel je: " + Pearls.Length);
 
@@ -90,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody.gravityScale = 1f;
             airAmount = 1f;
             bubbleSprite.transform.localScale = new Vector3(1f, 1f, 1f);
-            AirBarMask.anchoredPosition = new Vector2(-5f, AirBarMask.anchoredPosition.y);
+            AirBarMask.anchoredPosition = new Vector2(400, AirBarMask.anchoredPosition.y);
 
             return;
         } else

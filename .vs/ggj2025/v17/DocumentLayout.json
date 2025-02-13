@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\",
+  "WorkspaceRootPath": "C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\Assets\\Scripts\\PlayerMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\Assets\\Scripts\\PlayerMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\PlayerMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\Assets\\Scripts\\SceneExit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\Assets\\Scripts\\SceneExit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\SceneExit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\Assets\\Scripts\\NextLevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\Assets\\Scripts\\NextLevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\NextLevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\Assets\\Scripts\\Intro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\Assets\\Scripts\\Intro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Intro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -32,11 +32,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "PlayerMovement.cs",
-              "DocumentMoniker": "C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\Assets\\Scripts\\PlayerMovement.cs",
+              "DocumentMoniker": "C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\Assets\\Scripts\\PlayerMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMovement.cs",
-              "ToolTip": "C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\Assets\\Scripts\\PlayerMovement.cs*",
-              "RelativeToolTip": "Assets\\Scripts\\PlayerMovement.cs*",
-              "ViewState": "AgIAACkAAAAAAAAAAAAuwDQAAAAwAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\Assets\\Scripts\\PlayerMovement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerMovement.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAawF4AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-28T11:27:07.41Z",
               "EditorCaption": ""
@@ -45,22 +45,21 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "SceneExit.cs",
-              "DocumentMoniker": "C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\Assets\\Scripts\\SceneExit.cs",
+              "DocumentMoniker": "C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\Assets\\Scripts\\SceneExit.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SceneExit.cs",
-              "ToolTip": "C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\Assets\\Scripts\\SceneExit.cs",
+              "ToolTip": "C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\Assets\\Scripts\\SceneExit.cs",
               "RelativeToolTip": "Assets\\Scripts\\SceneExit.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T11:12:22.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-26T11:12:22.875Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "NextLevel.cs",
-              "DocumentMoniker": "C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\Assets\\Scripts\\NextLevel.cs",
+              "DocumentMoniker": "C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\Assets\\Scripts\\NextLevel.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NextLevel.cs",
-              "ToolTip": "C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\Assets\\Scripts\\NextLevel.cs",
+              "ToolTip": "C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\Assets\\Scripts\\NextLevel.cs",
               "RelativeToolTip": "Assets\\Scripts\\NextLevel.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -70,9 +69,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Intro.cs",
-              "DocumentMoniker": "C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\Assets\\Scripts\\Intro.cs",
+              "DocumentMoniker": "C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\Assets\\Scripts\\Intro.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Intro.cs",
-              "ToolTip": "C:\\Users\\sykor\\Documents\\GitHub\\ggj2025\\Assets\\Scripts\\Intro.cs",
+              "ToolTip": "C:\\Users\\Veronika\\Documents\\moodle-scripts\\ggj2025\\Assets\\Scripts\\Intro.cs",
               "RelativeToolTip": "Assets\\Scripts\\Intro.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

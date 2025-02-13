@@ -738,7 +738,7 @@ MonoBehaviour:
   pumpAirAmount: 0.08
   airReduction: 0.002
   breathableAir: 1
-  AirBar: {fileID: 1467537323365323284}
+  AirBar: {fileID: 2659794352919789161}
   startFloat: 1.2
   startDrown: 1.19
   floatDrownSpeed: 0.07
@@ -922,6 +922,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Airtank
       objectReference: {fileID: 0}
+    - target: {fileID: 1718205530803555831, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718205530803555831, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718205530803555831, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718205530803555831, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718205530803555831, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718205530803555831, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6559250205931378695, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
       propertyPath: m_Name
       value: UI
@@ -931,15 +955,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
---- !u!114 &1467537323365323284 stripped
+--- !u!114 &2659794352919789161 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5790567581786646879, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6983107463944324386, guid: 8228326a98bb0e74db74a3b283bb7f63, type: 3}
   m_PrefabInstance: {fileID: 4900347277066402635}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &4810988107931082824 stripped
